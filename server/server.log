@@ -1,0 +1,8 @@
+nohup: ignoring input
+
+> server@1.0.0 start
+> node index.js
+
+[dotenv@17.3.1] injecting env (4) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+Running in JSON Database mode (Offline)
+Server running on port 5000 (JSON Mode)

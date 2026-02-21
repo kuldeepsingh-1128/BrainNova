@@ -1,0 +1,247 @@
+nohup: ignoring input
+
+> client@1.0.0 dev
+> vite
+
+Port 3000 is in use, trying another one...
+
+  VITE v5.4.10  ready in 159 ms
+
+  ➜  Local:   http://localhost:1:11:16 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:11:16 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:13:15 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:13:15 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:13:32 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:13:32 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:14:25 AM [vite] page reload src/main.jsx
+1:14:27 AM [vite] hmr update /src/components/Navbar.jsx
+1:14:28 AM [vite] ✨ new dependencies optimized: @mui/material/styles, @mui/material/CssBaseline
+1:14:28 AM [vite] ✨ optimized dependencies changed. reloading
+1:14:32 AM [vite] ✨ new dependencies optimized: framer-motion
+1:14:32 AM [vite] ✨ optimized dependencies changed. reloading
+1:14:41 AM [vite] hmr update /src/pages/Home.jsx
+1:15:02 AM [vite] hmr update /src/pages/ProductList.jsx
+1:15:04 AM [vite] hmr update /src/pages/Login.jsx
+1:15:28 AM [vite] hmr update /src/pages/Register.jsx
+1:15:30 AM [vite] hmr update /src/pages/ProductDetails.jsx
+1:16:24 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:16:24 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:17:23 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:17:23 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:18:14 AM [vite] hmr update /src/components/Navbar.jsx
+1:18:24 AM [vite] hmr update /src/pages/ProductList.jsx
+1:18:24 AM [vite] Internal server error: /home/rahul/newPro/client/src/pages/ProductList.jsx: Expected corresponding JSX closing tag for <Paper>. (43:16)
+
+  41 |
+  42 |                 <Paper sx={{ p: 2, borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+> 43 |                 </Grid>
+     |                 ^
+  44 |             </Grid>
+  45 |         </Paper>
+  46 |             </Box >
+  Plugin: vite:react-babel
+  File: /home/rahul/newPro/client/src/pages/ProductList.jsx:43:16
+  41 |  
+  42 |                  <Paper sx={{ p: 2, borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+  43 |                  </Grid>
+     |                  ^
+  44 |              </Grid>
+  45 |          </Paper>
+      at constructor (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:365:19)
+      at JSXParserMixin.raise (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:6599:19)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4727:16)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElement (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4749:17)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4759:19)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10831:21)
+      at /home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10800:39
+      at JSXParserMixin.allowInAnd (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12426:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10800:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12493:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11675:28)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11331:23)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10831:21)
+      at JSXParserMixin.parseExpressionBase (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10784:23)
+      at /home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10780:39
+      at JSXParserMixin.allowInAnd (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12421:16)
+      at JSXParserMixin.parseExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10780:17)
+      at JSXParserMixin.parseReturnStatement (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13142:28)
+      at JSXParserMixin.parseStatementContent (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12798:21)
+      at JSXParserMixin.parseStatementLike (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12100:24)
+      at JSXParserMixin.parseArrowExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12075:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11687:12)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11331:23)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+1:18:32 AM [vite] Pre-transform error: /home/rahul/newPro/client/src/pages/ProductList.jsx: Expected corresponding JSX closing tag for <Paper>. (43:16)
+
+  41 |
+  42 |                 <Paper sx={{ p: 2, borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+> 43 |                 </Grid>
+     |                 ^
+  44 |             </Grid>
+  45 |         </Paper>
+  46 |             </Box >
+1:18:33 AM [vite] Internal server error: /home/rahul/newPro/client/src/pages/ProductList.jsx: Expected corresponding JSX closing tag for <Paper>. (43:16)
+
+  41 |
+  42 |                 <Paper sx={{ p: 2, borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+> 43 |                 </Grid>
+     |                 ^
+  44 |             </Grid>
+  45 |         </Paper>
+  46 |             </Box >
+  Plugin: vite:react-babel
+  File: /home/rahul/newPro/client/src/pages/ProductList.jsx:43:16
+  41 |  
+  42 |                  <Paper sx={{ p: 2, borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+  43 |                  </Grid>
+     |                  ^
+  44 |              </Grid>
+  45 |          </Paper>
+      at constructor (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:365:19)
+      at JSXParserMixin.raise (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:6599:19)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4727:16)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElementAt (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElement (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4749:17)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4759:19)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10831:21)
+      at /home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10800:39
+      at JSXParserMixin.allowInAnd (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12426:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10800:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12493:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11675:28)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11331:23)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10831:21)
+      at JSXParserMixin.parseExpressionBase (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10784:23)
+      at /home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10780:39
+      at JSXParserMixin.allowInAnd (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12421:16)
+      at JSXParserMixin.parseExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10780:17)
+      at JSXParserMixin.parseReturnStatement (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13142:28)
+      at JSXParserMixin.parseStatementContent (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12798:21)
+      at JSXParserMixin.parseStatementLike (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12100:24)
+      at JSXParserMixin.parseArrowExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:12075:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11687:12)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11331:23)
+      at JSXParserMixin.parseExprAtom (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/home/rahul/newPro/client/node_modules/@babel/parser/lib/index.js:10881:23)
+1:19:24 AM [vite] hmr update /src/pages/ProductList.jsx
+1:19:45 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:19:45 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:21:27 AM [vite] http proxy error: /api/auth/register
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:21:40 AM [vite] http proxy error: /api/auth/register
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:21:41 AM [vite] http proxy error: /api/auth/register
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:21:57 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:21:57 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:22:14 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:22:14 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:09 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:09 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:16 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:16 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:26 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:26 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:34 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+1:25:34 AM [vite] http proxy error: /api/buyer/products?search=&district=
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)

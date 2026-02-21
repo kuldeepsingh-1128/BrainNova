@@ -1,0 +1,452 @@
+import React, { useState, useEffect } from 'react';
+import {
+    Container, Grid, Card, CardMedia, CardContent,
+    Typography, TextField, Box, Button, InputAdornment,
+    Chip, Fade, Stack, Paper, CircularProgress, Rating
+} from '@mui/material';
+import { Search, LocationOn, FilterList, Star } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import API from '../api/axios';
+import { motion } from 'framer-motion';
+
+const ProductList = () => {
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [search, setSearch] = useState('');
+    const [district, setDistrict] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            filterProducts();
+        }, 300); // Debounce search by 300ms
+
+        return () => clearTimeout(timer);
+    }, [search, district, selectedCategory, products]);
+
+    const fetchProducts = async () => {
+        try {
+            setLoading(true);
+            const { data } = await API.get('/buyer/products');
+            setProducts(data);
+            setFilteredProducts(data);
+            
+            // Extract unique categories
+            const uniqueCategories = [...new Set(data.map(p => p.category).filter(Boolean))];
+            setCategories(uniqueCategories);
+        } catch (err) {
+            console.error('Error fetching products:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const filterProducts = () => {
+        let filtered = [...products];
+
+        // Filter by search term (searches in name, description, and category)
+        if (search.trim()) {
+            filtered = filtered.filter(p => 
+                p.name.toLowerCase().includes(search.toLowerCase().trim()) ||
+                p.description?.toLowerCase().includes(search.toLowerCase().trim()) ||
+                p.category?.toLowerCase().includes(search.toLowerCase().trim())
+            );
+        }
+
+        // Filter by selected category
+        if (selectedCategory) {
+            filtered = filtered.filter(p => p.category === selectedCategory);
+        }
+
+        // Filter by district
+        if (district.trim()) {
+            filtered = filtered.filter(p => 
+                p.district?.toLowerCase().includes(district.toLowerCase().trim())
+            );
+        }
+
+        setFilteredProducts(filtered);
+    };
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(selectedCategory === category ? '' : category);
+    };
+
+    return (
+        <Container maxWidth="lg" sx={{ py: 6 }}>
+            {/* Hero Section */}
+            <Box sx={{ mb: 5, textAlign: 'center' }}>
+                <Typography 
+                    variant="h3" 
+                    fontWeight={800} 
+                    gutterBottom
+                    sx={{ 
+                        background: 'linear-gradient(135deg, #1a237e 0%, #f57c00 100%)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        mb: 2
+                    }}
+                >
+                    Discover Our Heritage
+                </Typography>
+                <Typography variant="h6" color="text.secondary" sx={{ mb: 4, fontWeight: 400 }}>
+                    Browse unique products from over 700 districts across the nation
+                </Typography>
+
+                {/* Search and Filter Section */}
+                <Paper 
+                    elevation={0}
+                    sx={{ 
+                        p: 3, 
+                        borderRadius: 4, 
+                        border: '1px solid',
+                        borderColor: 'divider',
+                        bgcolor: 'background.paper'
+                    }}
+                >
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} md={5}>
+                            <TextField
+                                fullWidth
+                                placeholder="Search by name, category, or description..."
+                                variant="outlined"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <Search sx={{ color: 'primary.main' }} />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: 3,
+                                        bgcolor: 'background.default',
+                                        '&:hover fieldset': {
+                                            borderColor: 'primary.main',
+                                        },
+                                    }
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={5}>
+                            <TextField
+                                fullWidth
+                                placeholder="Filter by district..."
+                                variant="outlined"
+                                value={district}
+                                onChange={(e) => setDistrict(e.target.value)}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <LocationOn sx={{ color: 'primary.main' }} />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: 3,
+                                        bgcolor: 'background.default',
+                                        '&:hover fieldset': {
+                                            borderColor: 'primary.main',
+                                        },
+                                    }
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={2}>
+                            <Button
+                                fullWidth
+                                variant="outlined"
+                                color="error"
+                                sx={{ 
+                                    height: '56px',
+                                    borderRadius: 3,
+                                    fontWeight: 600,
+                                    textTransform: 'none',
+                                    fontSize: '1rem'
+                                }}
+                                onClick={() => {
+                                    setSearch('');
+                                    setDistrict('');
+                                    setSelectedCategory('');
+                                }}
+                            >
+                                Clear All
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+                    {/* Helper Text */}
+                    <Typography 
+                        variant="caption" 
+                        color="text.secondary" 
+                        sx={{ 
+                            display: 'block', 
+                            mt: 2,
+                            textAlign: 'center',
+                            fontSize: '0.85rem'
+                        }}
+                    >
+                        💡 Try: <strong>Banarasi</strong>, <strong>Textiles</strong>, <strong>Handicrafts</strong>, <strong>Terracotta</strong>
+                    </Typography>
+                </Paper>
+
+                {/* Category Filter Chips */}
+                {categories.length > 0 && (
+                    <Box sx={{ mt: 3 }}>
+                        <Typography 
+                            variant="subtitle2" 
+                            sx={{ 
+                                mb: 2, 
+                                fontWeight: 600,
+                                color: 'text.secondary',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                                fontSize: '0.75rem'
+                            }}
+                        >
+                            Filter by Category
+                        </Typography>
+                        <Stack 
+                            direction="row" 
+                            spacing={1.5} 
+                            flexWrap="wrap" 
+                            justifyContent="center"
+                            sx={{ gap: 1.5 }}
+                        >
+                            {categories.map((category) => (
+                                <Chip
+                                    key={category}
+                                    label={category}
+                                    onClick={() => handleCategoryClick(category)}
+                                    color={selectedCategory === category ? 'primary' : 'default'}
+                                    variant={selectedCategory === category ? 'filled' : 'outlined'}
+                                    sx={{ 
+                                        fontWeight: selectedCategory === category ? 700 : 500,
+                                        cursor: 'pointer',
+                                        fontSize: '0.9rem',
+                                        px: 2,
+                                        py: 2.5,
+                                        borderRadius: 3,
+                                        transition: 'all 0.2s ease',
+                                        '&:hover': {
+                                            transform: 'translateY(-2px)',
+                                            boxShadow: selectedCategory === category 
+                                                ? '0 8px 16px rgba(26, 35, 126, 0.3)' 
+                                                : '0 4px 12px rgba(0,0,0,0.1)',
+                                        }
+                                    }}
+                                />
+                            ))}
+                        </Stack>
+                    </Box>
+                )}
+            </Box>
+
+            {loading ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', py: 15 }}>
+                    <CircularProgress size={60} thickness={4} />
+                </Box>
+            ) : (
+                <>
+                    {/* Results Count */}
+                    {filteredProducts.length > 0 && (
+                        <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                            <Typography variant="body1" color="text.secondary" fontWeight={500}>
+                                Showing <strong>{filteredProducts.length}</strong> product{filteredProducts.length !== 1 ? 's' : ''}
+                                {(search || district || selectedCategory) && ' matching your filters'}
+                            </Typography>
+                        </Box>
+                    )}
+
+                    <Grid container spacing={3}>
+                        {filteredProducts.map((product, idx) => (
+                            <Grid item key={product._id} xs={12} sm={6} md={4}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                >
+                                    <Card
+                                        component={Link}
+                                        to={`/product/${product._id}`}
+                                        elevation={0}
+                                        sx={{
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            textDecoration: 'none',
+                                            color: 'inherit',
+                                            borderRadius: 4,
+                                            border: '1px solid',
+                                            borderColor: 'divider',
+                                            overflow: 'hidden',
+                                            transition: 'all 0.3s ease',
+                                            '&:hover': {
+                                                transform: 'translateY(-8px)',
+                                                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
+                                                borderColor: 'primary.main',
+                                            }
+                                        }}
+                                    >
+                                        <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="240"
+                                                image={`http://localhost:5000/${product.image}`}
+                                                alt={product.name}
+                                                sx={{ 
+                                                    objectFit: 'cover',
+                                                    transition: 'transform 0.3s ease',
+                                                    '&:hover': {
+                                                        transform: 'scale(1.05)',
+                                                    }
+                                                }}
+                                            />
+                                            <Chip
+                                                label={product.district}
+                 Paper 
+                    elevation={0}
+                    sx={{ 
+                        textAlign: 'center', 
+                        py: 10,
+                        px: 4,
+                        borderRadius: 4,
+                        border: '2px dashed',
+                        borderColor: 'divider',
+                        bgcolor: 'background.default'
+                    }}
+                >
+                    <Box sx={{ mb: 3 }}>
+                        <Typography variant="h1" sx={{ fontSize: '4rem', mb: 2 }}>
+                            🔍
+                        </Typography>
+                        <Typography variant="h5" color="text.primary" fontWeight={700} gutterBottom>
+                            No products found
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+                            {search || district || selectedCategory 
+                                ? `We couldn't find any products matching your search criteria.`
+                                : "No products available at the moment."
+                            }
+                        </Typography>
+                    </Box>
+                    {(search || district || selectedCategory) && (
+                        <Button 
+                            variant="contained" 
+                            size="large"
+                            sx={{ 
+                                borderRadius: 3,
+                                px: 4,
+                                py: 1.5,
+                                fontWeight: 600,
+                                textTransform: 'none',
+                                fontSize: '1rem'
+                            }}
+                            onClick={() => {
+                                setSearch('');
+                                setDistrict('');
+                                setSelectedCategory('');
+                            }}
+                        >
+                            Clear All Filters
+                        </Button>
+                    )}
+                </Paper                               textTransform: 'uppercase',
+                                                    letterSpacing: '0.5px',
+                                                    boxShadow: '0 2px 8px rgba(26, 35, 126, 0.3)',
+                                                }}
+                                            />
+                                        </Box>
+                                        <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                                            <Typography 
+                                                variant="h6" 
+                                                sx={{ 
+                                                    fontWeight: 700, 
+                                                    mb: 1.5,
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 2,
+                                                    WebkitBoxOrient: 'vertical',
+                                                }}
+                                            >
+                                                {product.name}
+                                            </Typography>
+                                            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
+                                                <Typography 
+                                                    variant="h5" 
+                                                    sx={{ 
+                                                        color: 'primary.main', 
+                                                        fontWeight: 800 
+                                                    }}
+                                                >
+                                                    ₹{product.price.toLocaleString()}
+                                                </Typography>
+                                                {product.stock > 0 ? (
+                                                    <Chip 
+                                                        label={`${product.stock} in stock`} 
+                                                        size="small" 
+                                                        color="success"
+                                                        variant="outlined"
+                                                        sx={{ fontSize: '0.7rem' }}
+                                                    />
+                                                ) : (
+                                                    <Chip 
+                                                        label="Out of stock" 
+                                                        size="small" 
+                                                        color="error"
+                                                        variant="outlined"
+                                                        sx={{ fontSize: '0.7rem' }}
+                                                    />
+                                                )}
+                                            </Box>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </>
+            )}
+
+            {!loading && filteredProducts.length === 0 && (
+                <Box sx={{ textAlign: 'center', py: 10 }}>
+                    <Typography variant="h6" color="text.secondary" gutterBottom>
+                        No products found
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {search || district || selectedCategory 
+                            ? `Try adjusting your filters`
+                            : "No products available at the moment."
+                        }
+                    </Typography>
+                    {(search || district || selectedCategory) && (
+                        <Button 
+                            variant="outlined" 
+                            sx={{ mt: 2 }}
+                            onClick={() => {
+                                setSearch('');
+                                setDistrict('');
+                                setSelectedCategory('');
+                            }}
+                        >
+                            Clear All Filters
+                        </Button>
+                    )}
+                </Box>
+            )}
+        </Container>
+    );
+};
+
+export default ProductList;
